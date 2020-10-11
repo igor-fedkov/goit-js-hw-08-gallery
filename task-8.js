@@ -62,38 +62,37 @@ function onKeyEscapeDownOnModalWindow(event) {
 	}
 };
 
-// document.addEventListener('keydown', onScrollingImageOnModalWindow);
-// function onScrollingImageOnModalWindow(event) {
-// 	if (!modalWindow.classList.contains("is-open")) {
-// 		return;
-// 	}
-// 	if (event.code === "ArrowLeft") {
-// 		const currentImageUrl = lightboxImage.src;
-// 		const indexOfImage = imageData.findIndex(({ original }) => original === currentImageUrl);
+document.addEventListener('keydown', onScrollingImageOnModalWindow);
+function onScrollingImageOnModalWindow(event) {
+	if (!modalWindow.classList.contains("is-open")) {
+		return;
+	}
+	if (event.code === "ArrowLeft") {
+		const currentImageUrl = lightboxImage.src;
+		const indexOfImage = imageData.findIndex(({ original }) => original === currentImageUrl);
 
-// 		if (indexOfImage > 0) {
-// 			lightboxImage.src = imageData[indexOfImage - 1].original;
-// 			lightboxImage.alt = imageData[indexOfImage - 1].alt;
-// 		}
-// 		else (
-// 			lightboxImage.src = imageData[imageData.length - 1].original;
-// 			lightboxImage.alt = imageData[imageData.length - 1].alt;
-// 		)
-// 	}
-// 	else if (event.code === "ArrowRight") {
-// 		const currentImageUrl = lightboxImage.src;
-// 		const indexOfImage = imageData.findIndex(({ original }) => original === currentImageUrl);
+		if (indexOfImage > 0) {
+			lightboxImage.src = imageData[indexOfImage - 1].original;
+			lightboxImage.alt = imageData[indexOfImage - 1].alt;
+		}
+		else {
+			lightboxImage.src = imageData[imageData.length - 1].original;
+			lightboxImage.alt = imageData[imageData.length - 1].alt;
+		}
+	}
+	else if (event.code === "ArrowRight") {
+		const currentImageUrl = lightboxImage.src;
+		const indexOfImage = imageData.findIndex(({ original }) => original === currentImageUrl);
 
-// 		if (indexOfImage > 0 && indexOfImage < imageData.length - 1) {
-// 			lightboxImage.src = imageData[indexOfImage + 1].original;
-// 			lightboxImage.alt = imageData[indexOfImage + 1].alt;
-// 		}
-// 		else (
-// 			lightboxImage.src = imageData[0].original;
-// 			lightboxImage.alt = imageData[0].alt;
-// 		)
-// 	}
-// };
+		if (indexOfImage >= 0 && indexOfImage < imageData.length - 1) {
+			lightboxImage.src = imageData[indexOfImage + 1].original;
+			lightboxImage.alt = imageData[indexOfImage + 1].alt;
+		}
+		else {
+			lightboxImage.src = imageData[0].original;
+			lightboxImage.alt = imageData[0].alt;
+		}
+	}
+};
 
-// console.log(galleryItemsList);
 
